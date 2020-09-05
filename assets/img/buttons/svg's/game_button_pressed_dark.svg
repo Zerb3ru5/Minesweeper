@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:export-ydpi="96"
+   inkscape:export-xdpi="96"
+   inkscape:export-filename="C:\Users\Nutzer\PycharmProjects\Minesweeper\assets\img\buttons\game_button_pressed_dark.png"
+   sodipodi:docname="game_button_normal_light.svg"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 92.604165 26.458334"
+   height="100"
+   width="350">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     gridtolerance="1"
+     inkscape:showpageshadow="false"
+     units="px"
+     inkscape:window-maximized="1"
+     inkscape:window-y="-9"
+     inkscape:window-x="-9"
+     inkscape:window-height="1051"
+     inkscape:window-width="1920"
+     showgrid="true"
+     inkscape:document-rotation="0"
+     inkscape:current-layer="layer1"
+     inkscape:document-units="mm"
+     inkscape:cy="50"
+     inkscape:cx="175"
+     inkscape:zoom="3.9428571"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base">
+    <inkscape:grid
+       empspacing="5"
+       id="grid833"
+       type="xygrid" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:groupmode="layer"
+     inkscape:label="Layer 1">
+    <rect
+       y="0"
+       x="2.5431316e-06"
+       height="26.458332"
+       width="92.604164"
+       id="rect835"
+       style="fill:#003c78;fill-opacity:1;fill-rule:evenodd;stroke-width:0.264583" />
+    <rect
+       y="1.3229166"
+       x="1.3229166"
+       height="25.135416"
+       width="89.958336"
+       id="rect837"
+       style="fill:#282828;fill-opacity:1;fill-rule:evenodd;stroke-width:0.267922" />
+    <path
+       sodipodi:nodetypes="cscssssssssccc"
+       id="path841"
+       d="m 8.7489402,-15.117679 c -2.600321,0.431174 0.130399,4.973846 2.7707648,5.351041 1.29539,0.185056 2.947567,-7.538047 3.576018,-6.909595 0.02866,0.02866 1.520681,14.693986 8.909742,9.152184 0.432382,-0.324286 -3.539874,-3.675284 -1.217109,-6.118259 2.322766,-2.442975 5.061337,-5.068914 5.459843,-4.670408 2.815676,2.815674 -0.560494,13.79817 3.333578,12.42515 5.844582,-2.060757 6.779732,-7.330181 8.182416,-9.334016 5.231772,-7.473961 3.818835,8.279468 6.970206,8.909742 6.613347,1.32267 4.292819,-15.505258 10.303783,-10.849277 3.062772,2.372367 -5.728715,11.509486 -1.394043,10.546225 11.057328,-2.457183 7.68992,-13.883607 16.061779,-9.697678 3.957,1.194891 -6.387127,3.033413 -4.970058,10.72806 0.547676,1.423962 14.286832,-5.252301 16.096413,-4.753598"
+       style="fill:none;stroke:#787878;stroke-width:9.03226;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  </g>
+</svg>
