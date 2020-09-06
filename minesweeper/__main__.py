@@ -12,6 +12,7 @@ from minesweeper.screens.game_screen import GameScreen
 from minesweeper.screens.pause_screen import PauseScreen
 from minesweeper.screens.settings_screen import SettingsScreen
 from minesweeper.screens.game_over_screen import GameOverScreen
+from minesweeper.screens.victory_screen import VictoryScreen
 from minesweeper.screens.leaderboard_screen import LeaderboardScreen
 
 from minesweeper.theming import Theme
@@ -42,6 +43,7 @@ class Main(FloatLayout):
                                            mines_percentage=settings_data['mines_percentage']))
         self.content.add_widget(PauseScreen(name='pause_screen', theme=theme))
         self.content.add_widget(GameOverScreen(name='game_over_screen', theme=theme))
+        self.content.add_widget(VictoryScreen(name='victory_screen', theme=theme))
         self.content.add_widget(LeaderboardScreen(name='leaderboard_screen', theme=theme))
         self.content.add_widget(SettingsScreen(name='settings_screen', theme=theme, data=settings_data))
 

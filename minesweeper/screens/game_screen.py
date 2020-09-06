@@ -28,7 +28,8 @@ class GameScreen(Screen):
             size_hint=[None, None],
             on_release=lambda n: self.change_to_settings(),
             background_normal=f'C:/Users/Nutzer/PycharmProjects/Minesweeper/assets/img/buttons/pause_button_normal_{theme.current}.png',
-            background_down=f'C:/Users/Nutzer/PycharmProjects/Minesweeper/assets/img/buttons/pause_button_pressed_{theme.current}.png'
+            background_down=f'C:/Users/Nutzer/PycharmProjects/Minesweeper/assets/img/buttons/pause_button_pressed_{theme.current}.png',
+            background_disabled_normal=f'C:/Users/Nutzer/PycharmProjects/Minesweeper/assets/img/buttons/pause_button_normal_{theme.current}.png'
         )
         self.bar.add_widget(self.burger)
 
@@ -66,6 +67,7 @@ class GameScreen(Screen):
 
         # recolor buttons
         self.burger.background_normal = f'C:/Users/Nutzer/PycharmProjects/Minesweeper/assets/img/buttons/pause_button_normal_{theme.current}.png'
+        self.burger.background_disabled_normal = f'C:/Users/Nutzer/PycharmProjects/Minesweeper/assets/img/buttons/pause_button_normal_{theme.current}.png'
         self.burger.background_down = f'C:/Users/Nutzer/PycharmProjects/Minesweeper/assets/img/buttons/pause_button_pressed_{theme.current}.png'
 
     def game_over(self, time):
@@ -81,3 +83,27 @@ class GameScreen(Screen):
             self.manager.get_screen('game_over_screen').remove_leaderboard_button()
 
         self.manager.current = 'game_over_screen'
+
+        self.weeper.game_state = 'None'
+        self.weeper.redraw()
+        self.burger.disabled = False
+
+    def victory(self, time):
+        self.manager.get_screen('victory_screen').info.text = self.stopwatch.time_to_string(time[0], time[1]) + ' min'
+        self.manager.get_screen('victory_screen').minutes = time[0]
+        self.manager.get_screen('victory_screen').seconds = time[1]
+        self.manager.get_screen('victory_screen').order = 'won'
+
+        # look if the entry would fit into the leaderboard and show the leaderboard button accordingly
+        if self.manager.get_screen('leaderboard_screen').entries.fits_in_leaderboard(time):
+            self.manager.get_screen('game_over_screen').add_leaderboard_button()
+        else:
+            self.manager.get_screen('game_over_screen').remove_leaderboard_button()
+
+        self.manager.current = 'victory_screen'
+
+        self.weeper.game_state = 'None'
+        self.weeper.redraw()
+        self.burger.disabled = False
+
+        

@@ -219,7 +219,7 @@ class Leaderboard(list):
             return self.in_seconds(element)
 
         won.sort(key=sortFunc)
-        lost.sort(key=sortFunc)
+        lost.sort(key=sortFunc, reverse=True)
 
         # print('The sorted lists', won, lost)
 

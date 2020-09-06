@@ -1,11 +1,11 @@
-from kivy.uix.button import Button
+from kivy.clock import Clock
 from kivy.core.window import Window
-
 from kivy.graphics import Line
+from kivy.uix.button import Button
 
-from minesweeper.widgets.core.graphics import Mine, Flag
+from minesweeper.widgets.core.graphics import Flag, Mine
 
-
+from kivy.graphics import Color
 class Cell(Button):
     # icons
     mine_icon = None
@@ -84,15 +84,15 @@ class Cell(Button):
         if touch.button == 'right' and self.collide_point(*touch.pos) and not self.revealed:
             # (un)flag the pressed button and check for victory
             self.toggle_flag()
-            if self.victory():
+            if self.isVictory():
                 print('-- VICTORY --')
             return False
         elif touch.button == 'left' and self.collide_point(*touch.pos) and not self.revealed:
             # reveal the pressed button
             self.reveal()
             # check for victory
-            if self.victory():
-                print('-- VICTORY --')
+            if self.isVictory():
+                self.victory()
             # if the pressed button is a mine, game over
             if self.mine:
                 self.game_over()
@@ -158,7 +158,7 @@ class Cell(Button):
                 if not neighbour.revealed:
                     neighbour.reveal()
 
-    def victory(self):
+    def isVictory(self):
         normal_not_selected_count = 0
         not_flagged_mines_count = 0
         for i in range(self.grid_size):
@@ -179,14 +179,42 @@ class Cell(Button):
             return False
 
     def game_over(self):
+        # reveal all the cells
         for i in range(self.grid_size):
             for j in range(self.grid_size):
                 if not self.cells[i][j].revealed:
                     self.cells[i][j].reveal()
 
+        # stop the stopwatch
         print('-- GAME OVER --')
         self.all.stopwatch.stop()
-        self.all.game_over([self.all.stopwatch.minutes, self.all.stopwatch.seconds])
+
+        # change the color of the game grid to red and disable pause button
+        self.all.weeper.game_state = 'lost'
+        self.all.weeper.redraw()
+        self.all.burger.disabled = True
+
+        # register that the game is lost
+        Clock.schedule_once(lambda n:self.all.game_over([self.all.stopwatch.minutes, self.all.stopwatch.seconds]), 5)
+
+    def victory(self):
+        # reveal all the cells
+        for i in range(self.grid_size):
+            for j in range(self.grid_size):
+                if not self.cells[i][j].revealed:
+                    self.cells[i][j].reveal()
+
+        # stop the stopwatch
+        print('-- VICTORY --')
+        self.all.stopwatch.stop()
+
+        # change the color of the game grid to green and disable pause button
+        self.all.weeper.game_state = 'won'
+        self.all.weeper.redraw()
+        self.all.burger.disabled = True
+
+        # register that the game ist won
+        Clock.schedule_once(lambda n: self.all.victory([self.all.stopwatch.minutes, self.all.stopwatch.seconds]), 5)
 
     def redraw(self, *args):
         if self.mine and self.revealed:

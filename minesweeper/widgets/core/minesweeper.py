@@ -11,6 +11,7 @@ class Minesweeper(GridLayout):
     theme = None
     grid_size = 0
     mines_percent = 0
+    game_state = 'None'
 
     def __init__(self, all, theme, grid_size=15, mines_percent=0.15, **kwargs):
         super(Minesweeper, self).__init__(
@@ -25,7 +26,7 @@ class Minesweeper(GridLayout):
 
         # define a background for the grid --> dark lines between the tiles
         with self.canvas:
-            theme.make_color(theme.get_secondary())
+            self.color = theme.make_color(theme.get_secondary())
             self.grid_background = Rectangle(pos=self.pos, size=(self.width, self.height))
         self.bind(pos=self.redraw, size=self.redraw)
 
@@ -57,6 +58,12 @@ class Minesweeper(GridLayout):
                 self.cells[i][j].count_neighbours(self.cells)
 
     def redraw(self, *args):
+        if self.game_state == 'won':
+            self.color.rgba = [0, 255, 0, 1]
+        elif self.game_state == 'lost':
+            self.color.rgba = [255, 0, 0, 1]
+        else:
+            self.color.rgba = self.theme.get_secondary()
         self.grid_background.pos = self.pos
         self.grid_background.size = (self.width, self.height)
 

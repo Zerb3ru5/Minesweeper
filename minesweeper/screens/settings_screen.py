@@ -64,7 +64,7 @@ class SettingsScreen(Screen):
         # the grid size settings
         grid_size_setting = BoxLayout(orientation='horizontal', size_hint=[1, None], size=[50, 50], padding=[20, 0])
         self.grid_size_setting_name = SettingName(name='Grid size', theme=theme, size_hint=[0.33, None], size=[150, 50])
-        self.grid_size_setting_value = SettingLabel(text='15', theme=theme, size_hint=[0.1, None], size=[30, 50],
+        self.grid_size_setting_value = SettingLabel(text=str(data['grid_size']), theme=theme, size_hint=[0.1, None], size=[30, 50],
                                                     halign='right')
         self.grid_size_setting_slider = Slider(
             min=3,
@@ -88,7 +88,7 @@ class SettingsScreen(Screen):
                                              padding=[20, 0])
         self.mines_percentage_setting_name = SettingName(name='Mines percentage', theme=theme, size_hint=[0.8, None],
                                                          size=[150, 50])
-        self.mines_percentage_setting_value = SettingLabel(text='15%', theme=theme, size_hint=[0.2, None],
+        self.mines_percentage_setting_value = SettingLabel(text=str(data['mines_percentage']) + '%', theme=theme, size_hint=[0.2, None],
                                                            size=[30, 50], halign='right')
         self.mines_percentage_setting_slider = Slider(
             min=1,
@@ -203,7 +203,7 @@ class SettingsScreen(Screen):
             # apply the new value to the minesweeper game and change the value displayed on the side
             self.manager.get_screen('game_screen').weeper.reset_game(
                 mines_percent=self.mines_percentage_setting_slider.value / 100)
-            self.mines_percentage_setting_value.text = str(self.mines_percentage_setting_slider.value) + '%'
+            self.mines_percentage_setting_value.text = str(int(self.mines_percentage_setting_slider.value)) + '%'
 
     # fired when the slider is moved
     def grid_size_setting_update_value_label(self, slider, label, instance, touch):
